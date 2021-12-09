@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+</script>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<title>View All Bookings</title>
+</head>
+<body>
+<header th:insert="UserDashboard.html :: header"> </header>
+
+	        Booking Reference Number : <span  th:text ="${book.getBookRefNum()}"> </span ><br>
+			Parking Slot Name: <span  th:text ="${book.getParkingSlot()}"> </span ><br>
+			Location :  <span  th:text ="${book.getLocation()}"> </span ><br>
+			Check In Time :<span  th:text ="${book.getCheckInTime()}"> </span ><br>
+			Check Out Time: <span  th:text ="${book.getCheckOutTime()}"> </span ><br>
+			Date: <span  th:text ="${book.getDate()}"> </span ><br>
+			Services Opted: <span  th:text ="${book.getService()}"> </span ><br>
+			Status:<span  th:text ="${book.getStatus()}"> </span ><br>
+			Bill Cost:  <span  th:text ="${book.getBillCost()}"></span>
+			Advance : 100 <br>
+			Total: <span  th:text ="${book.getBillCost() +100}"></span><br>
+			<form>
+			<input type="submit" name="done" value="Confirm">
+			</form>	
+
+<p><p><p>
+<form method="get"  action="UserDashboard">
+<input type="submit" value="Back">
+</form>		
+
+<footer th:insert="UserDashboard.html :: footer"> </footer>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>All Workers</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" >Admin Dashboard</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="active"><a th:href="@{/Admin/Workers}">Worker Management</a></li>
+            <li><a th:href="@{/Admin/RequestApproval}">Request Management</a></li>
+            <li><a th:href="@{/Admin/ParkingSlots}">Parking Slot Management</a></li>
+        </ul>
+    </div>
+</nav>
+<div class = "container my-2">
+
+    <h1>Workers</h1>
+    <a th:href = "@{/Admin/showNewWorkerForm}" class = "btn btn-primary btn-sm mb-3"> Add Worker </a>
+    <br>
+    <br>
+    <table border="1" class = "table table-striped table-responsive-md">
+        <thead>
+        <tr>
+            <th>Worker ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Rating</th>
+            <th>Cummulative Hours</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="worker : ${listWorkers}">
+            <td th:text="${worker.iD}"></td>
+            <td th:text="${worker.firstName}"></td>
+            <td th:text="${worker.lastName}"></td>
+            <td th:text="${worker.email}"></td>
+            <td th:text="${worker.cummHrs}"></td>
+            <td th:text="${worker.rating}"></td>
+            <td>
+                <a th:href="@{/Admin/showFormForWorkerUpdate/{id}(id=${worker.iD})}" class ="btn btn-primary">Update </a>
+                <a th:href="@{/Admin/deleteWorker/{id}(id=${worker.iD})}" class ="btn btn-danger">Delete </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

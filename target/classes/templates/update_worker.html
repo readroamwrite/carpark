@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Workers</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+<div class = "container">
+    <h1>Workers</h1>
+    <hr>
+    <h2>Update Workers</h2>
+    <form action="#" th:action="@{/saveWorker}" th:object = "${worker}" method="POST">
+        <input type="hidden" th:field="*{iD}">
+        <input type="text" th:field = "*{firstName}" placeholder="First Name" class = "form control mb-4 col-4">
+        <input type="text" th:field = "*{lastName}" placeholder="Last Name" class = "form control mb-4 col-4">
+        <input type="text" th:field = "*{email}" placeholder="Email address" class = "form control mb-4 col-4">
+        <input type="hidden" th:field="*{rating}">
+        <input type="hidden" th:field="*{cummHrs}">
+        <button type="submit" class = "btn btn-info col-2">Update Worker</button>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	$("#p1").hide();
+	  $("#modifly1").click(function(){
+		    $("#p1").toggle();
+		  });
+	  $("#p2").hide();
+  $("#modifly2").click(function(){
+    $("#p2").toggle();
+  });
+  $("#p3").hide();
+    $("#modifly3").click(function(){
+    $("#p3").toggle();
+  });
+});
+</script>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<title>View User Info</title>
+</head>
+<body>
+<header th:insert="UserDashboard.html :: header"> </header>
+
+Name : <span  th:text ="${user.getFirstName() +' '+ user.getLastName()}"> </span >
+<p>
+Email : <span  th:text ="${user.getEmail()}"> </span > <br>
+<button id="modifly1">Modify</button><br>
+<div id=p1>
+<form>
+ <input type="email" name="email"></input><br>
+<input type="submit" value="submit"></input><br>
+</form>
+</div>
+<p>
+Mobile Number : <span  th:text ="${user.getMobileNum() }"> </span > <br>
+<button id="modifly2">Modify</button><br>
+<div id=p2> 
+<form>
+ <input type="number" name="mobileNum"></input><br>
+ <input type="submit" value="submit">
+</form>
+</div>
+<p>
+Car Registration Number : <span  th:text ="${user.getCarRegNum()}"></span > <br>
+<button id="modifly3">Modify</button><br>
+<div id=p3> 
+<form>
+ <input type="text" name="carRegNum"></input><br>
+ <input type="submit" value="submit">
+</form>
+</div>
+<p>
+Wallet : <span th:text ="${user.getWallet()}"> </span>
+<p><p><p>
+<form method="get"  action="UserDashboard">
+<input type="submit" value="Back">
+</form>
+
+<br>
+<footer th:insert="UserDashboard.html :: footer"> </footer>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+</body>
+</html>
